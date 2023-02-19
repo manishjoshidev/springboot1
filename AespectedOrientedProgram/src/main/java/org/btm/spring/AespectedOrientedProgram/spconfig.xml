@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+    "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+    
+    <beans>
+       <bean id="id1" class="org.btm.springbeforeadviceafteradvice.MyImplClass"/>
+       <bean id="id2" class="org.btm.springbeforeadviceafteradvice.MyWelcomeAdvice"/>
+       <bean id="id3" class="org.btm.springbeforeadviceafteradvice.MyAfterAdvice"/>
+       
+       <bean id="id4" class="org.springframework.aop.framework.ProxyFactoryBean" />
+       <property name="proxyInterface" value="org.btm.springbeforeadviceafteradvice.MyInterface" />
+            <property name="interceptorNames">
+       <list>
+           <value>id2</value>
+           <value>id3</value>
+       
+       </list>
+       </property>
+       <property name="target">
+           <ref bean="id1" />
+       </property>
+     
+    </bean>
+        
+    </beans>
+ 
+  
